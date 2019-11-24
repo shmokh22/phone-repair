@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">DrPhone</string>
+    <string name="signup_user_phone_hint">Phone</string>
+    <string name="login_signup_password_hint">Password</string>
+    <string name="signup_email_hint">Email</string>
+    <string name="signup_confirm_password_hint">Confirm Password</string>
+    <string name="signup_title_text">Sign Up</string>
+    <string name="login_title_text">Login</string>
+    <string name="user_have_no_acc_suggest">Don\'t have an account?</string>
+    <string name="login_signup_textbutton">Sign Up</string>
+    <string name="login_password_forgot_textbutton">Forgot Password?</string>
+
+    <string name="dialog_message">To recover your account information please provide the e-mail address you specified during registration</string>
+    <string name="dialog_title">Forgot Password?</string>
+    <string name="title_activity_splash">SplashActivity</string>
+</resources>

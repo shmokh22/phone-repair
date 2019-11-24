@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             tools:context=".activity.signup.SignupActivity">
+    <!-- FrameLayout holds background image and color filter-->
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <!-- ImageView for background image-->
+        <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/login_background"/>
+        <!-- ImageView for color filter-->
+        <!-- alpha for color opacity ranges form 0.0 to 1.0 -->
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.5"
+                android:background="@color/colorBackgroundLogin"/>
+    </FrameLayout>
+    <!-- LinearLayout holds App (logo/name) and input fields -->
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+        <!-- Login title -->
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/signup_layout_title"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="24dp">
+
+            <ImageView
+                    android:id="@+id/signup_layout_title_side_icon"
+                    android:layout_width="4dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/side_label"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center_vertical"
+                    android:text="@string/signup_title_text"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/signup_layout_title_side_icon"/>
+        </android.support.constraint.ConstraintLayout>
+
+        <!-- LinearLayout for input fields -->
+        <LinearLayout
+                android:id="@+id/signup_layout_inputs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="6dp"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical">
+
+            <!-- Photo input field -->
+            <!--<include layout="@layout/photo_input_signup_view" /> -->
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/civ_signup_photo_add"
+                    android:layout_width="120dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_cam"
+                    app:civ_border_color="#00FFFFFF"
+                    app:civ_border_width="0dp"/>
+            <!-- TextInputLayout for Name input field -->
+            <include layout="@layout/layout_signup_name_input"/>
+
+            <!-- TextInputLayout for Email input field  -->
+            <include layout="@layout/layout_signup_email_input"/>
+
+            <!-- TextInputLayout for Password input field -->
+            <include layout="@layout/layout_signup_password_input"/>
+
+            <!-- TextInputLayout for Confirm Password input field -->
+            <include layout="@layout/layout_signup_confirm_password_input"/>
+
+            <!-- TextInputLayout for Phone input field  -->
+            <include layout="@layout/layout_signup_phone_input"/>
+
+            <co.ceryle.radiorealbutton.RadioRealButtonGroup
+                    android:id="@+id/radioRealButtonGroup_user_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_margin="4dp"
+                    android:elevation="2dp"
+                    app:rrbg_animateDrawables_enter="overshoot"
+                    app:rrbg_animateDrawables_exit="overshoot"
+                    app:rrbg_animateDrawables_scale="1.2"
+                    app:rrbg_animateDrawables_tintColorFrom="@color/white"
+                    app:rrbg_animateDrawables_tintColorTo="@color/colorPrimary"
+                    app:rrbg_animateDrawables_tintColor_duration="500"
+                    app:rrbg_animateTexts_enter="overshoot"
+                    app:rrbg_animateTexts_textColorTo="@color/colorPrimaryDark"
+                    app:rrbg_animateTexts_textColor_duration="500"
+                    app:rrbg_borderColor="@color/colorAccent"
+                    app:rrbg_borderSize="1dp"
+                    app:rrbg_dividerColor="@color/colorPrimary"
+                    app:rrbg_dividerPadding="12dp"
+                    app:rrbg_dividerRadius="2dp"
+                    app:rrbg_dividerSize="1dp"
+                    app:rrbg_enableDeselection="true"
+                    app:rrbg_radius="2dp"
+                    app:rrbg_selectorAboveOfBottomLine="false"
+                    app:rrbg_selectorAnimationType="translate_y"
+                    app:rrbg_selectorColor="@color/colorPrimaryDark"
+                    app:rrbg_selectorRadius="200dp"
+                    app:rrbg_selectorSize="4dp">
+
+                <co.ceryle.radiorealbutton.RadioRealButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:rrb_drawableHeight="36dp"
+                        app:rrb_drawablePadding="8dp"
+                        app:rrb_drawableWidth="36dp"
+                        app:rrb_ripple="true"
+                        app:rrb_text="Client"/>
+
+                <co.ceryle.radiorealbutton.RadioRealButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:rrb_drawableGravity="right"
+                        app:rrb_drawableHeight="36dp"
+                        app:rrb_drawablePadding="8dp"
+                        app:rrb_drawableWidth="36dp"
+                        app:rrb_ripple="true"
+                        app:rrb_text="Technical"/>
+
+            </co.ceryle.radiorealbutton.RadioRealButtonGroup>
+            <!-- Sign Up button -->
+            <include layout="@layout/layout_signup_button"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+            android:id="@+id/pb_signup_determinateBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="42dp"
+            android:background="@color/whiteBackground"
+            android:visibility="gone">
+
+        <ProgressBar
+                android:id="@+id/pb"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="24dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/colorPrimary"
+                android:padding="16dp"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="registering..."
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/pb"
+                app:layout_constraintTop_toTopOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+</FrameLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp">
+
+    <ImageView
+        android:id="@+id/login_layout_user_icon"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_user"
+        android:scaleX="0.85"
+        android:scaleY="0.85"
+        />
+    <android.support.design.widget.TextInputLayout
+        android:textColorHint="@color/white"
+        android:id="@+id/login_layout_user_inputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/login_layout_user_icon"
+        android:layout_marginStart="12dp"
+        >
+        <EditText
+            android:id="@+id/et_login_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:hint="@string/signup_email_hint"
+            android:textColor="@color/white"
+            android:inputType="textEmailAddress" />
+    </android.support.design.widget.TextInputLayout>
+</RelativeLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             tools:context=".activity.login.LoginActivity">
+
+    <!-- FrameLayout holds background image and color filter-->
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <!-- ImageView for background image-->
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/login_background"
+        />
+        <!-- ImageView for color filter-->
+        <!-- alpha for color opacity ranges form 0.0 to 1.0 -->
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.8"
+                android:background="@color/colorBackgroundLogin"/>
+    </FrameLayout>
+
+    <!-- LinearLayout holds App (logo/name) and input fields -->
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+        <!-- Login title -->
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/login_layout_title"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="24dp">
+
+            <ImageView
+                    android:id="@+id/login_layout_title_side_icon"
+                    android:layout_width="4dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/side_label"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:id="@+id/login_layout_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center_vertical"
+                    android:text="@string/login_title_text"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/login_layout_title_side_icon"/>
+        </android.support.constraint.ConstraintLayout>
+        <!-- ConstraintLayout for App logo and name -->
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/login_layout_logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_weight="1">
+            <!-- ImageView for App logo -->
+            <ImageView
+                    android:id="@+id/login_layout_logo_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/drphonelogo"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="DrPhone"
+                    android:fontFamily="cursive"
+                    android:textStyle="bold"
+                    android:textSize="42sp"
+                    android:gravity="center|bottom"/>
+        </android.support.constraint.ConstraintLayout>
+        <!-- LinearLayout for input fields and login/signup button -->
+        <LinearLayout
+                android:id="@+id/login_layout_inputs"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1.5"
+                android:orientation="vertical">
+
+            <!-- TextInputLayout for Username/email input field -->
+            <include layout="@layout/layout_login_email_input"/>
+
+            <!-- TextInputLayout for Password input field -->
+            <include layout="@layout/layout_login_password_input"/>
+
+            <!-- login button -->
+            <include layout="@layout/layout_login_button"/>
+            <!-- signup msg/button -->
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/user_have_no_acc_suggest"
+                        android:textColor="@color/grey"
+                        android:textSize="14sp"/>
+
+                <TextView
+                        android:id="@+id/tv_login_layout_signUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/login_signup_textbutton"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+            android:id="@+id/pb_login_determinateBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="42dp"
+            android:background="@color/whiteBackground"
+            android:visibility="gone">
+
+        <ProgressBar
+                android:id="@+id/pb"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="24dp"
+                android:padding="16dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/colorPrimary"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="authenticating..."
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/pb"
+                app:layout_constraintTop_toTopOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+</FrameLayout>
